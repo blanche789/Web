@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul{
+	/*list-style-type:decimal;
+	list-style-image:url(../image/list.png);
+	list-style-position: inside;*/
+	
+	list-style: url(../image/list.png) inside;
+}

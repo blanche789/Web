@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+a{
+	color: gray;
+  font-size:20px;
+  /*background-color: aqua;*/
+  text-decoration:none;
+}
+
+/*
+a:link{
+	color: black;
+}
+
+a:visited{
+	color: blue;
+}
+*/
+
+a:hover{
+	text-decoration: underline;
+}
+
+/*
+a:active{
+	font-size: 50px
+}*/
