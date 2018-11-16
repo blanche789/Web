@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>后端笔记</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/8.0/styles/solarized_dark.min.css">
+<script src="https://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+        var div1 = document.createElement("div");
+        div1.style.cssText = "clear:both";
+        // create TOC list
+        var outline = document.createElement("div");
+        outline.setAttribute("id", "outline-list");
+        outline.style.cssText = "border:solid 1px #ccc; background:#eee; min-width:200px;padding:4px 10px;";
+        
+        var ele_p = document.createElement("p");
+        ele_p.style.cssText = "text-align: left; margin: 0;";
+        outline.appendChild(ele_p);
+        
+        var ele_span = document.createElement("span");
+        // ele_span.style.cssText = "float: left;";
+        var ele_text=document.createTextNode("TOC");
+        ele_span.appendChild(ele_text);
+        
+        var ele_a = document.createElement("a");
+        ele_a.appendChild(document.createTextNode("[+]"));
+        ele_a.setAttribute("href", "#");
+        ele_a.setAttribute("onclick", "javascript:return openct(this);");
+        ele_a.setAttribute("title", "Click to Open TOC");
+
+        ele_span.appendChild(ele_a);
+        ele_p.appendChild(ele_span);
+
+        var ele_ol = document.createElement("ol");
+        ele_ol.style.cssText = "display:none;margin-left:14px;padding-left:14px;line-height:160%;";
+        ele_ol.setAttribute("id", "outline_ol");
+        outline.appendChild(ele_ol);
+        var div1 = document.createElement("div");
+        div1.style.cssText = "clear:both";
+
+        document.body.insertBefore(outline, document.body.childNodes[0]);
+        // get all the headlines
+        var headers = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+        if (headers.length < 2)
+          return;
+
+        // -----
+        var old_h = 0, ol_cnt = 0;
+        // -----
+        
+        for (var i = 0; i < headers.length; i++) {
+          
+          var ele_ols = null;
+            // get H* and prepare for the ordered list 
+            var header = headers[i];
+            //header.setAttribute("id", "t" + i + header.tagName);
+            header.setAttribute("id", header.textContent);
+            var h = parseInt(header.tagName.substr(1), 10);
+            // -----
+            if (!old_h){
+              old_h = h;
+            }
+            
+            if (h > old_h) {
+              ele_ols = document.createElement("ol");
+              var ele_Current = ele_ol;
+              if(ele_Current && ol_cnt > 0){
+                var temp = ol_cnt;
+                while(temp > 0){
+                  ele_Current = ele_Current.lastChild;
+                  temp--;
+                }
+              }
+              ele_Current.lastChild.appendChild(ele_ols);
+              ol_cnt++;
+            } else if (h < old_h && ol_cnt > 0) {
+              if (h == 1) {
+                while (ol_cnt > 0) {
+                  ol_cnt--;
+                }
+              } else {
+                ele_ols = document.createElement("ol");
+                var ele_Current = ele_ol;
+                if(ele_Current && ol_cnt > 0){
+                  var temp = ol_cnt;
+                  while(temp > 1){
+                    ele_Current = ele_Current.lastChild;
+                    temp--;
+                  }
+                }
+              ele_Current.appendChild(ele_ols);
+
+              ol_cnt--;
+            }
+            }
+            if (h == 1) {
+              while (ol_cnt > 0) {
+                ol_cnt--;
+              }
+            }
+            old_h = h;
+            // -----
+            if (ele_ols){
+              ele_li = document.createElement("li")
+              ele_ols.appendChild(ele_li);
+            } else {
+              ele_li = document.createElement("li")
+              ele_ol.appendChild(ele_li);
+            }
+            
+            var a = document.createElement("a");
+            // set href for the TOC item 
+            //a.setAttribute("href", "#t" + i + header.tagName);
+            a.setAttribute("href", "#" + header.textContent);
+            // TOC item text
+            a.innerHTML = header.textContent;
+
+            
+            ele_li.appendChild(a);
+          }
+          // -----
+          while (ol_cnt > 0) {
+            ol_cnt--;
+          }
+          // -----
+
+        });
+        
+// 
+function openct(e) {
+  if (e.innerHTML == '[+]') {
+    // createTextNode
+    e.setAttribute('title', 'collapse');
+    e.innerHTML = '[-]';
+    var element = document.getElementById("outline_ol");
+    element.style.cssText = "margin-left:14px;padding-left:14px;line-height:160%;";
+  } else {
+    e.setAttribute('title', 'expand');
+    e.innerHTML = '[+]';
+    var element = document.getElementById("outline_ol");
+    element.style.cssText = "display:none;margin-left:14px;padding-left:14px;line-height:160%;";
+  }
+  e.blur();
+  return false;
+}
+</script>
+</head>
+<body>
+<h2 id="-servlet-">开发第一个Servlet程序</h2>
+<ul>
+<li><p>开发Servlet程序</p>
+<ul>
+<li>创建Servlet</li><li>重写doGet（）方法</li><li>配置Servlet</li><li>访问Servlet</li></ul>
+</li><li><p>源代码:</p>
+<pre><code>  package com.javaweb;
+
+  import java.io.IOException;
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  /**
+   * Servlet implementation class TestServlet
+   */
+  @WebServlet(&quot;/TestServlet&quot;)  /*请求的地址*/
+  public class TestServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      /**
+       * @see HttpServlet#HttpServlet()
+       */
+      public TestServlet() {
+          super();
+      }
+
+      /**
+       * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          response.getWriter().append(&quot;Served at: &quot;).append(request.getContextPath());
+          System.out.println(&quot;TestServlet!&quot;);
+
+      }
+
+      /**
+       * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          doGet(request, response);
+      }
+
+  }
+</code></pre><p>  console：每访问一次，控制台将执行doGet方法；</p>
+</li></ul>
+<h2 id="servlet-jsp-">Servlet、JSP获取表单数据</h2>
+<ul>
+<li><p>Servlet获取表单数据</p>
+<ul>
+<li>调用HttpServletRequest对象的getParameter（）方法获取请求参数、表单数据</li><li>调用HttpServletRequest对象的setCharacterEncoding（）方法设置中文字符集,post方法获取参数须先设置字符集为utf-8</li></ul>
+</li><li><p>JSP获取表单数据</p>
+<ul>
+<li>创建JSP</li><li>设置中文字符集   window-&gt;preferences-&gt;web-&gt;jsp-&gt;Encoding</li><li>通过${param.参数名} 获取参数、表单数据</li></ul>
+</li><li><p>Servlet代码:</p>
+<pre><code>  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      System.out.println(&quot;TestServlet!&quot;);
+      String userName = request.getParameter(&quot;userName&quot;);  /*获取H5中的数据*/
+      System.out.println(&quot;userName:&quot; + userName);
+  }
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      request.setCharacterEncoding(&quot;utf-8&quot;);  /*post方法获取参数须先设置字符集为utf-8,不然获取的参数会乱码*/
+      doGet(request, response);
+  }
+</code></pre></li><li><p>H5代码:</p>
+<pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;注册&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;form action=&quot;/TestServlet&quot; method=&quot;get&quot;&gt;  /*提交时调用Servlet中的doGet方法*/
+          userName &lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;
+          &lt;br&gt;
+          &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt; 
+      &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre></li><li><p>jsp代码:</p>
+<pre><code>  &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+      pageEncoding=&quot;UTF-8&quot;%&gt;
+  &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+  &lt;title&gt;Insert title here&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;h1&gt;OK&lt;/h1&gt;
+      ${param.userName}
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre></li></ul>
+<h2 id="-">京东注册表单数据获取</h2>
+<ul>
+<li>创建jd项目</li><li>复制网页内容</li><li>创建RegisterServlet并获取表单数据</li><li>创建registerSuccess.jsp页面</li><li>获取RequestDispatcher对象并将请求转发到registerSuccess.jsp</li><li><p>registerSuccess.jsp获取表单数据</p>
+</li><li><p>Sevlet源代码:</p>
+<pre><code>  package com.jd.maintain.servlet;
+
+  import java.io.IOException;
+
+  import javax.servlet.RequestDispatcher;
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  /**
+   * Servlet implementation class RegisterServlet
+   */
+  @WebServlet(&quot;/maintain/RegisterServlet&quot;)
+  public class RegisterServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      /**
+       * @see HttpServlet#HttpServlet()
+       */
+      public RegisterServlet() {
+          super();
+          // TODO Auto-generated constructor stub
+      }
+
+      /**
+       * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+      }
+
+      /**
+       * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          request.setCharacterEncoding(&quot;utf-8&quot;);
+          String userName = request.getParameter(&quot;userName&quot;);
+          String password = request.getParameter(&quot;password&quot;);
+          String telephone = request.getParameter(&quot;telephone&quot;);
+          String validateCode = request.getParameter(&quot;validateCode&quot;);
+          System.out.println(&quot;用户名:&quot; + userName);
+          System.out.println(&quot;密码:&quot; + password);
+          System.out.println(&quot;手机号:&quot; + telephone);
+          System.out.println(&quot;验证码:&quot; + validateCode);
+
+          RequestDispatcher rd = request.getRequestDispatcher(&quot;../RegisterSuccess.jsp&quot;);  /*将请求转发到jsp中*/
+          rd.forward(request, response);
+      }
+
+  }
+</code></pre></li></ul>
+<h2 id="jdbc-">JDBC数据库连接</h2>
+<ul>
+<li><p>开发步骤</p>
+<ul>
+<li>导入MySQL驱动包      创建lib-&gt;将jdbc的jar包复制进lib-&gt;在整个项目导入lib中的jar包(properties[性质]-&gt;libraries-&gt;add mysql的jar包)</li><li>Class.forName()方法装载MySQL驱动类</li><li>DriverManager.getConnection()方法获取Connection数据库连接对象:<ul>
+<li>协议<img src="https://assets-cdn.github.com/images/icons/emoji/jdbc.png" alt=":jdbc:" title=":jdbc:" class="emoji" align="absmiddle" height="20" width="20">mysql://</li><li>主机:localhost (127.0.0.1)</li><li>端口:3306</li><li>数据库:jd</li><li>参数:userSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8</li></ul>
+</li></ul>
+</li><li><p>Demo源码:</p>
+<pre><code>  /*所用jar包:mysql-connector-java-8.0.12.jar*/
+  import java.sql.Connection;
+  import java.sql.DriverManager;
+  import java.sql.SQLException;
+
+  public class JDBCDemo {
+
+      public static void main(String[] args) {
+          try {
+              Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+              String url = &quot;jdbc:mysql://localhost:3306/jd?useSSL=false&amp;serverTimezone=UTC&quot;;
+              String user = &quot;root&quot;;
+              String password = &quot;mx123123&quot;;
+              Connection con = DriverManager.getConnection(url, user, password);
+              System.out.println(con);
+          } catch (ClassNotFoundException e) {
+                      System.out.println(&quot;找不到class&quot;);
+          } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          }
+      }
+  }
+</code></pre></li></ul>
+<h2 id="jdbc-">JDBC插入数据</h2>
+<pre><code>import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JDBCDemo {
+    public Connection getConnection() {
+        Connection con = null;
+        try {
+            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+            String url = &quot;jdbc:mysql://localhost:3306/jd?useSSL=false&amp;serverTimezone=UTC&quot;;
+            String user = &quot;root&quot;;
+            String password = &quot;mx123123&quot;;
+            con = DriverManager.getConnection(url, user, password);
+
+        } catch (ClassNotFoundException e) {
+                    System.out.println(&quot;找不到class&quot;);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return con;
+    }
+
+    public void saveUser() {
+        Connection con = null;  /*对象写在外面*/
+        PreparedStatement ps = null;
+        try {
+            con = getConnection();
+            String sql = &quot;insert into user_info(user_name,password,telephone) values(?,?,?)&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, &quot;李四&quot;);
+            ps.setString(2, &quot;123456&quot;);
+            ps.setString(3, &quot;1380013800&quot;);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+
+            if(ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        JDBCDemo jdbc = new JDBCDemo();
+        jdbc.saveUser();
+    }
+}
+</code></pre><ul>
+<li>Tips：<ul>
+<li>对于try里的对象，一般写在try模块之外，主要原因是一旦报错，那么很可能try里的所有语句失效，导致无法在后续的代码块中识别对象。</li></ul>
+</li></ul>
+<h2 id="jdbc-">JDBC查询数据</h2>
+<ul>
+<li><p>开发步骤</p>
+<ul>
+<li>获取Connection数据库连接</li><li>创建PreparedStatement对象</li><li>通过PrepareStatement对象设置参数</li><li>调用PreparedStatement对象的executeQuery（）方法查询数据，并将结果保存到ResultSet对象中</li><li>通过ResultSet对象输出查询到的数据</li><li>释放数据库资源</li></ul>
+</li><li><p>源代码</p>
+<pre><code>      public void queryUser() {
+          Connection con = null;
+          PreparedStatement ps = null;
+          ResultSet rs = null;
+          try {
+              con = getConnection();
+              String sql = &quot;select * from user_info where id = ?&quot;;
+              ps = con.prepareStatement(sql);
+              ps.setInt(1, 2);
+              rs = ps.executeQuery();  /*executeQuery（）方法返回一个ResultSet*/
+              System.out.println(&quot;id\tuserName\tpassword\ttelephone&quot;);
+              while (rs.next()) {           /*遍历ResultSet，光标从空开始，每迭代一次便移到下一行*/
+  //                System.out.println(rs.getInt(&quot;id&quot;) + &quot;\t&quot; + rs.getString(&quot;user_name&quot;) + &quot;\t&quot; + rs.getString(&quot;password&quot;)  /*get方法后面可以是具体的字段名，也可以是字段的index*/
+  //                        + &quot;\t&quot; + rs.getString(&quot;telephone&quot;));
+                  System.out.println(rs.getInt(1) + &quot;\t&quot; + rs.getString(2) + &quot;\t&quot; + rs.getString(3)
+                  + &quot;\t&quot; + rs.getString(4));
+              }
+          } catch (SQLException e) {
+              e.printStackTrace();
+          } finally {
+              if (rs != null) {
+                  try {
+                      rs.close();
+                  } catch (SQLException e) {
+                      e.printStackTrace();
+                  }
+              }
+              if (ps != null) {
+                  try {
+                      ps.close();
+                  } catch (SQLException e) {
+                      e.printStackTrace();
+                  }
+              }
+
+              if (con != null) {
+                  try {
+                      con.close();
+                  } catch (SQLException e) {
+
+                      e.printStackTrace();
+                  }
+              }
+          }
+      }
+</code></pre><h2 id="-jdbcutil-">京东平台JDBCUtil工具类</h2>
+</li><li><p>开发步骤</p>
+<ul>
+<li>在com.jd.common目录下创建JDBCUtil数据库工具类</li><li>编写静态getConnection（）方法，用来获取数据库连接对象</li><li>编写静态clear（）方法用来释放数据库资源</li></ul>
+</li><li><p>源代码：</p>
+<pre><code>  package com.jd.common;
+
+  import java.sql.Connection;
+  import java.sql.DriverManager;
+  import java.sql.PreparedStatement;
+  import java.sql.ResultSet;
+  import java.sql.SQLException;
+
+  public class JDBCUtil {
+
+      public static Connection getConnection() {  /*定义为静态方法，方便直接通过类来调用*/
+          Connection con = null;
+          try {
+              Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+              String url = &quot;jdbc:mysql://localhost:3306/jd?useSSL=false&amp;serverTimezone=UTC&quot;;
+              String user = &quot;root&quot;;
+              String password = &quot;mx123123&quot;;
+              con = DriverManager.getConnection(url, user, password);
+
+          } catch (ClassNotFoundException e) {
+              System.out.println(&quot;找不到class&quot;);
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+          return con;
+      }
+
+      public static void clear(Connection con,PreparedStatement ps,ResultSet rs) {
+          if (rs != null) {
+              try {
+                  rs.close();
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
+          }
+          if (ps != null) {
+              try {
+                  ps.close();
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
+          }
+
+          if (con != null) {
+              try {
+                  con.close();
+              } catch (SQLException e) {
+
+                  e.printStackTrace();
+              }
+          }
+      }
+      }
+
+      public static void main(String[] args) {
+
+      }
+
+  }
+</code></pre></li></ul>
+<h2 id="-userinfodao-dao-data-access-object-">京东平台UserInfoDao类(Dao-&gt;data access object数据访问对象)</h2>
+<ul>
+<li><p>开发步骤</p>
+<ul>
+<li>在com.jd.maintain.dao目录下创建UserInfoDao数据访问对象</li><li>编写queryByUserName()方法:根据用户名查询用户信息</li><li>编写saveUserInfo()方法:保存用户信息</li></ul>
+</li><li><p>源代码</p>
+<pre><code>  package com.jd.maintain.dao;
+
+  import java.sql.Connection;
+  import java.sql.PreparedStatement;
+  import java.sql.ResultSet;
+  import java.sql.SQLException;
+
+  import com.jd.common.JDBCUtil;
+
+  public class UserInfoDao {
+
+      public void saveUser(String userName,String password,String telephone) {
+          Connection con = null;
+          PreparedStatement ps = null;
+          try {
+              con = JDBCUtil.getConnection();
+              String sql = &quot;insert into user_info(user_name,password,telephone) values(?,?,?)&quot;;
+              ps = con.prepareStatement(sql);
+              ps.setString(1, userName);
+              ps.setString(2, password);
+              ps.setString(3, telephone);
+              ps.executeUpdate();
+          } catch (SQLException e) {
+              System.out.println(&quot;保存用户失败&quot;);
+          } finally {
+              JDBCUtil.clear(con, ps, null);
+              }
+      }
+
+      public boolean queryByUserName(String userName) {
+          Connection con = null;
+          PreparedStatement ps = null;
+          ResultSet rs = null;
+          boolean flag = false;
+          try {
+              con = JDBCUtil.getConnection();
+              String sql = &quot;select * from user_info where user_name = ?&quot;;
+              ps = con.prepareStatement(sql);
+              ps.setString(1, userName);
+              rs = ps.executeQuery();
+              if(rs.next()) {
+                  flag = true;
+              }
+
+          } catch (SQLException e) {
+              System.out.println(&quot;数据查询失败&quot;);
+          } finally {
+              JDBCUtil.clear(con, ps, rs);
+              }
+          return flag;
+      }
+
+      public static void main(String[] args) {
+          UserInfoDao uid = new UserInfoDao();
+          boolean flag = uid.queryByUserName(&quot;杰&quot;);
+          System.out.println(&quot;flag=&quot; + flag);
+          uid.saveUser(&quot;培杰&quot;, &quot;a123123&quot;, &quot;15521093426&quot;);
+
+      }
+
+  }
+</code></pre></li></ul>
+<h2 id="-">京东注册用户已存在功能</h2>
+<ul>
+<li>开发步骤<ul>
+<li>调用UserInfoDao类的queryByUserName()方法判断用户是否已存在</li><li>若用户已存在则到达alreadyRegister.jsp页面并显示用户已被注册提示信息</li><li>增加characterEncoding=utf-8数据库连接参数,防止数据乱码</li></ul>
+</li></ul>
+<ul>
+<li><p>JSP源码:</p>
+<pre><code>  &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+      pageEncoding=&quot;UTF-8&quot;%&gt;
+  &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+  &lt;title&gt;Insert title here&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;img src=&quot;../common/images/icon.png&quot;&gt;
+      &lt;h1 style=&quot;color:red&quot;&gt;${param.userName},已注册,请返回重新注册!
+      &lt;br&gt;
+      &lt;a href=&quot;../register.html&quot;&gt;重新注册&lt;/a&gt;
+      &lt;/h1&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre></li><li><p>Servlet源码:</p>
+<pre><code>  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      request.setCharacterEncoding(&quot;utf-8&quot;);
+      String userName = request.getParameter(&quot;userName&quot;);
+      String password = request.getParameter(&quot;password&quot;);
+      String telephone = request.getParameter(&quot;telephone&quot;);
+      String validateCode = request.getParameter(&quot;validateCode&quot;);
+      UserInfoDao uid = new UserInfoDao();
+      if(uid.queryByUserName(userName)) {
+          System.out.println(&quot;用户名已存在&quot;);
+          RequestDispatcher rd = request.getRequestDispatcher(&quot;../alreadyRegister.jsp&quot;);
+          rd.forward(request, response);
+      }else {
+      System.out.println(&quot;用户名:&quot; + userName);
+      System.out.println(&quot;密码:&quot; + password);
+      System.out.println(&quot;手机号:&quot; + telephone);
+      System.out.println(&quot;验证码:&quot; + validateCode);
+      }
+      RequestDispatcher rd = request.getRequestDispatcher(&quot;../RegisterSuccess.jsp&quot;);
+      rd.forward(request, response);
+  }
+</code></pre></li></ul>
+<h2 id="-">京东注册表单数据保存功能</h2>
+<ul>
+<li><p>开发步骤</p>
+<ul>
+<li>调用UserInfoDao类的saveUserInfo()保存用户信息</li><li>在com.jd.maintain.dto目录下创建UserInfoDto(data transform object)数据传输对象<ul>
+<li>快速生成构造方法</li><li>快速生成get/set方法</li></ul>
+</li></ul>
+</li><li><p>源代码:</p>
+<pre><code>  package com.jd.maintain.dto;
+
+  public class UserInfoDto {
+      private int id;
+      private String userName;
+      private String password;
+      private String telephone;
+
+      public UserInfoDto() {
+          super();
+
+      }
+
+      public UserInfoDto(int id, String userName, String password, String telephone) {
+          super();
+          this.id = id;
+          this.userName = userName;
+          this.password = password;
+          this.telephone = telephone;
+      }
+
+      public int getId() {
+          return id;
+      }
+
+      public String getUserName() {
+          return userName;
+      }
+
+      public String getPassword() {
+          return password;
+      }
+
+      public String getTelephone() {
+          return telephone;
+      }
+
+      public void setId(int id) {
+          this.id = id;
+      }
+
+      public void setUserName(String userName) {
+          this.userName = userName;
+      }
+
+      public void setPassword(String password) {
+          this.password = password;
+      } 
+
+      public void setTelephone(String telephone) {
+          this.telephone = telephone;
+      }
+</code></pre></li></ul>
+<pre><code>    }
+</code></pre><h2 id="javaweb-">JavaWeb项目发布</h2>
+<ul>
+<li>项目发布步骤(一般情况下eclipse会先通过tomcat自行形成一个虚拟服务器,并将web项目发布上去)<ul>
+<li>项目打包,生成.war文件 (expot-&gt;web file-&gt;overwrite existing file/export source file导出java文件,这个一般不勾选)</li><li>将.war文件存放于tomcat中的webapps目录中</li><li>启动tomcat自动解压.war文件</li><li>打开浏览器测试所发布的项目</li><li>修改tomcat端口   (tomcat-&gt;conf-&gt;server.xml-&gt;改变端口号),浏览器默认端口号为80</li></ul>
+</li></ul>
+<ul>
+<li>Tips:<ul>
+<li>每一个域名都有一个ip</li><li>网页默认的端口号都是80</li></ul>
+</li></ul>
+<h2 id="javaweb-">JavaWeb部署描述文件</h2>
+<ul>
+<li><p>tomcat-&gt;conf-&gt;serve.xml</p>
+<pre><code>   &lt;host&gt;
+      &lt;Context path=&quot;&quot; docBase=&quot;jd&quot; debug=&quot;0&quot; reloadable=&quot;true&quot;/&gt;
+  &lt;/Host&gt;
+</code></pre></li><li>Tips:<ul>
+<li>将端口号改变成80后,在将Tomcat指定默认工程,那么在浏览器中输入localhost就可以直接跳到默认工程中的web.xml中的第一个描述文件;</li><li>web.xml文件在WEB-CONTENT-&gt;WEB-INF中</li></ul>
+</li></ul>
+<h2 id="servlet-">Servlet生命周期</h2>
+<ul>
+<li>Servlet生命周期完全由容器管理,容器负责创建Servlet实例,当Servlet完成所有的处理功能之后,容器便会销毁该Servlet</li><li>Servlet生命周期就是指Servlet实例从创建之后响应客户请求直到销毁的全过程</li><li>Servlet生命周期由HttpServlet类的init()、service（）、destroy（）方法来控制</li><li><p>Servlet的生命周期由4个阶段组成：</p>
+<ul>
+<li>加载和实例化阶段</li><li>初始化阶段</li><li>请求处理阶段</li><li>销毁阶段</li></ul>
+</li><li><p>web.xml代码:</p>
+<pre><code>   &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+  xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+  id=&quot;WebApp_ID&quot; version=&quot;3.1&quot; metadata-complete=&quot;true&quot;&gt;
+  &lt;display-name&gt;JavaWeb&lt;/display-name&gt;
+  &lt;welcome-file-list&gt;
+      &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+      &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+      &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+      &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+      &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+      &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+  &lt;servlet&gt;
+      &lt;servlet-name&gt;testServlet&lt;/servlet-name&gt;  //实例化
+      &lt;servlet-class&gt;com.javaweb.TestServlet&lt;/servlet-class&gt;  //类的位置
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;testServlet&lt;/servlet-name&gt;  //实例名字
+      &lt;url-pattern&gt;/test&lt;/url-pattern&gt;  //地址
+  &lt;/servlet-mapping&gt;
+  &lt;/web-app&gt;
+</code></pre></li><li><p>servlet源代码：</p>
+<pre><code>  package com.javaweb;
+
+  import java.io.IOException;
+
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  /**
+   * Servlet implementation class TestServlet
+   */
+
+  public class TestServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      /**
+       * @see HttpServlet#HttpServlet()
+       */
+      public TestServlet() {
+          super();
+      }
+</code></pre></li></ul>
+<pre><code>        @Override
+        public void init() throws ServletException {  /*进行初始化，可以在sevlet响应之前完成一些其他的需求与工作*/
+            // TODO Auto-generated method stub
+            super.init();
+            System.out.println(&quot;initial&quot;);
+        }
+
+
+
+
+
+        @Override
+        protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // TODO Auto-generated method stub
+            super.service(request, response);  /*将client端的需求传递doXXX，执行完doXXX方法才回到下一行代码继续执行*/
+            System.out.println(&quot;service&quot;);
+        }
+
+
+
+        @Override
+        public void destroy() {
+            System.out.println(&quot;destroy&quot;);  /*只有tomcat停止服务才会调用这个方法*/
+            super.destroy();
+        }
+
+
+
+        /**
+         * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+         */
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            System.out.println(&quot;TestServlet!&quot;);
+
+        }
+
+        /**
+         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+         */
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+            request.setCharacterEncoding(&quot;utf-8&quot;);
+            doGet(request, response);
+        }
+
+    }
+</code></pre><ul>
+<li>Tips：<ul>
+<li>加载和实例化实际上就是将一个url赋值给servlet，一般不用这种方法，在定义servlet的时候就已经定义了url</li><li>以上的三个方法全都无需通过对象调用，servlet会自动调用</li></ul>
+</li></ul>
+<h2 id="servlet-">Servlet请求、响应常用方法</h2>
+<ul>
+<li><p>HttpServletRequest常用方法</p>
+<ul>
+<li>setCharacterEncoding（String charset） <ul>
+<li>设置字符集，常用在doPost方法</li></ul>
+</li><li>getMethod（）   <ul>
+<li>获取调用方法</li></ul>
+</li><li>getQueryString（）  <ul>
+<li>获取参数的字符串，在doGet调用此方法才会显示出参数，在doPost所获得参数将会被屏蔽</li></ul>
+</li><li>getRequestURI（）  <ul>
+<li>获取所请求资源的标志，即返回servlet的类名</li></ul>
+</li><li>getRequestURL（）  <ul>
+<li>获取所请求资源的location，即返回包括http、服务器、以及servlet地址在内的信息</li></ul>
+</li><li>getPatameter（String name）  <ul>
+<li>获取表单的参数</li></ul>
+</li></ul>
+</li><li><p>HttpServletResponse常用方法</p>
+<ul>
+<li>getWriter（）  <ul>
+<li>返回一个PrintWriter对象，输出的位置是servlet所在的页面</li></ul>
+</li><li>setCharacterEncoding（） <ul>
+<li>设置字符集，以便传递给页面的内容不会出现乱码</li></ul>
+</li><li>setContentType（String arg）   <ul>
+<li>设置字符集，以便传递给页面的内容不会出现乱码，一般用这个方法，而不用setCharacterEncoding（）</li><li>arg=“text/html；charset=utf-8”，意思是设置内容的类型为html，字符集为utf-8</li><li>需要在getWriter（）之前调用</li></ul>
+</li><li>setRedirect（String arg）<ul>
+<li>使servlet的页面跳转到指定的页面 </li></ul>
+</li></ul>
+</li><li><p>源代码：</p>
+<pre><code>      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          System.out.println(&quot;userName=&quot; + request.getParameter(&quot;userName&quot;));
+          System.out.println(&quot;method=&quot; + request.getMethod());
+          System.out.println(&quot;queryString=&quot; + request.getQueryString());
+          System.out.println(&quot;URI=&quot; + request.getRequestURI());
+          System.out.println(&quot;URL=&quot; + request.getRequestURL());
+
+          response.setContentType(&quot;text/html;charset=utf-8&quot;);
+          PrintWriter pw = response.getWriter();
+          pw.print(&quot;hello&quot;);
+          response.sendRedirect(&quot;ok.jsp&quot;);
+
+      }
+
+      /**
+       * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          request.setCharacterEncoding(&quot;utf-8&quot;);
+          System.out.println(&quot;userName=&quot; + request.getParameter(&quot;userName&quot;));
+          System.out.println(&quot;method=&quot; + request.getMethod());
+          System.out.println(&quot;queryString=&quot; + request.getQueryString());
+          System.out.println(&quot;URI=&quot; + request.getRequestURI());
+          System.out.println(&quot;URL=&quot; + request.getRequestURL());
+</code></pre></li></ul>
+<pre><code>        }
+</code></pre><h2 id="javaweb-">JavaWeb路径</h2>
+<ul>
+<li>服务器相对路径<ul>
+<li>/工程名/路径</li></ul>
+</li><li>服务器绝对路径<ul>
+<li>路径/路径</li></ul>
+</li><li>请求转发路径  <ul>
+<li>请求转发无法识别绝对路径，原因是转发后跳转的页面仍然是servlet的url，故无法识别，需返回上一级../,寻找工程名</li></ul>
+</li><li><p>重定向路径 </p>
+<ul>
+<li>重定向后跳转到指定的url</li></ul>
+</li><li><p>servlet源代码:</p>
+<pre><code>          response.setContentType(&quot;text/html;charset=utf-8&quot;);
+  //        response.sendRedirect(&quot;ok.jsp&quot;);
+          PrintWriter pw = response.getWriter();
+          pw.print(&quot;hello&quot;);
+  //        response.sendRedirect(&quot;/JavaWeb/ok.jsp&quot;);
+          RequestDispatcher rd = request.getRequestDispatcher(&quot;../../ok.jsp&quot;);
+          rd.forward(request, response);
+</code></pre></li></ul>
+<h2 id="-">京东用户登录成功</h2>
+<ul>
+<li><p>开发步骤</p>
+<ul>
+<li>复制login.html页面</li><li>创建LoginServlet</li><li>UserInfoDao类增加根据用户名及密码查询用户的方法</li><li>账号、密码正确则到达登录成功页面</li></ul>
+</li><li><p>LoginServlet代码</p>
+<pre><code>  package com.jd.maintain.servlet;
+
+  import java.io.IOException;
+
+  import javax.servlet.RequestDispatcher;
+  import javax.servlet.ServletException;
+  import javax.servlet.annotation.WebServlet;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  import com.jd.maintain.dao.UserInfoDao;
+
+  /**
+   * Servlet implementation class LoginServlet
+   */
+  @WebServlet(&quot;/maintain/LoginServlet&quot;)
+  public class LoginServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      /**
+       * @see HttpServlet#HttpServlet()
+       */
+      public LoginServlet() {
+          super();
+
+      }
+
+      /**
+       * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          request.setCharacterEncoding(&quot;utf-8&quot;);
+          String userName = request.getParameter(&quot;userName&quot;);
+          String password = request.getParameter(&quot;password&quot;);
+          UserInfoDao uid = new UserInfoDao();
+          boolean flag = uid.queryUserInfo(userName, password);
+          if(flag) {
+              RequestDispatcher rd = request.getRequestDispatcher(&quot;../LoginSuccess.jsp&quot;);
+              rd.forward(request, response);
+          }
+
+      }
+
+      /**
+       * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+       */
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+          doGet(request, response);
+      }
+
+  }
+</code></pre></li><li><p>UserInfoDao</p>
+<pre><code>  public boolean queryUserInfo(String userName,String password) {
+
+      boolean flag = false;
+      try {
+          con = JDBCUtil.getConnection();
+          String sql = &quot;select * from user_info where user_name = ? and password = ?&quot;;
+          ps = con.prepareStatement(sql);
+          ps.setString(1, userName);
+          ps.setString(2, password);
+          rs = ps.executeQuery();
+          if(rs.next()) {
+              flag = true;
+          }
+      } catch (SQLException e) {
+          System.out.println(&quot;数据查询失败&quot;);
+      } finally {
+          JDBCUtil.clear(con, ps, rs);
+          }
+      return flag;
+  }
+</code></pre></li><li><p>Tips：</p>
+<ul>
+<li>查的Dao不用传入Dto对象，因为所需要的参数比较少，一般在insert数据的时候才传入Dto对象</li></ul>
+</li></ul>
+<h2 id="-">京东用户登录失败</h2>
+<ul>
+<li><p>开发步骤</p>
+<ul>
+<li><p>LoginServlet登录失败返回login.html页面</p>
+<ul>
+<li>target设置从_self,默认为_self</li></ul>
+</li><li><p>login.html页面显示错误的提示信息</p>
+</li></ul>
+</li><li><p>源代码:</p>
+<pre><code>  &lt;script type=&quot;text/javascript&quot;&gt;
+      function loginError(){
+          var url = window.location.href;  /*获取页面的url*/
+          if(url.indexOf(&quot;flag=false&quot;) != -1){
+              var errorMessage = document.getElementById(&quot;errorMessage&quot;);
+              errorMessage.style.display = &quot;inline&quot;;
+          }
+      }
+  &lt;/script&gt;
+</code></pre></li><li><p>tips:</p>
+</li></ul>
+<pre><code>- 逻辑处理为:从servlet返回一个flag=false,若在url中识别到flag=false,则将错误信息的display属性设置为可见
+- onLoad方法设置在body
+</code></pre><p><strong>第三章分割线</strong></p>
+<h2 id="javamd5-">JavaMD5加密</h2>
+<ul>
+<li>MD5加密过程<ul>
+<li>定义byte[]用来保存随机值</li><li>通过SecureRandom对象的nextBytes()方法生成随机值</li><li>创建MessageDigest加密对象(数据整理)<ul>
+<li>MessageDigest为抽象类,无法直接实例化,需要调用该类的静态方法getInstance()方法实例化</li></ul>
+</li><li>调用MessageDigest对象的update()方法对随机值及密码进行加密<ul>
+<li>对随机字节数组加密</li><li>对password加密</li></ul>
+</li><li>调用MessageDigest对象的digest()方法获得加密之后的密码</li><li>将随机值与加密之后的密码存放到最终的byte[]中,完成整个加密过程</li></ul>
+</li></ul>
+<ul>
+<li><p>源代码(工具类):</p>
+<pre><code>  package com.jd.common;
+
+  import java.security.MessageDigest;
+  import java.security.NoSuchAlgorithmException;
+  import java.security.SecureRandom;
+  import java.util.Arrays;
+
+  public class MD5Encrypt {  //encrypt:加密
+
+      public static byte[] encryptByMD5(String password) {
+
+          MessageDigest md = null;
+          byte[] randomBytes = new byte[12];
+          SecureRandom sr = new SecureRandom();
+          sr.nextBytes(randomBytes);
+          System.out.println(Arrays.toString(randomBytes));  //将数组转换为String
+
+          try {
+              md = MessageDigest.getInstance(&quot;MD5&quot;);  //MD5加密方式
+          } catch (NoSuchAlgorithmException e) {
+              e.printStackTrace();
+          }
+
+          md.update(randomBytes);
+          md.update(password.getBytes());
+          byte[] passwordBytes = md.digest();
+          System.out.println(Arrays.toString(passwordBytes));
+          byte[] resultPassword = new byte[randomBytes.length + passwordBytes.length];
+          System.arraycopy(randomBytes, 0, resultPassword, 0, randomBytes.length);
+          System.arraycopy(passwordBytes, 0, resultPassword, randomBytes.length, passwordBytes.length);  //进行数组的拷贝,
+          return resultPassword;
+
+      }
+
+      public static void main(String[] args) {
+
+          byte[] bytes = MD5Encrypt.encryptByMD5(&quot;123&quot;);
+          System.out.println(Arrays.toString(bytes));
+
+      }
+
+  }
+</code></pre></li><li>Tips:<ul>
+<li>Arrays.toString(byte[] arg) 数组转换为字符串</li><li>System.arraycopy(src, srcPos, dest, destPos, length)<ul>
+<li>数组的拷贝,src参数为被拷贝的数组,destination参数为进行拷贝的数组,pos参数为索引所何处开始,length表示被拷贝数组的长度</li></ul>
+</li></ul>
+</li></ul>
+<h2 id="-md5-">京东注册MD5加密</h2>
+<ul>
+<li>开发步骤<ul>
+<li>user_info表password字段改为blob类型</li><li>UserInfoDto类password属性改为byte[]类型</li><li>升级UserInfoDao类的saveUserInfo()方法</li></ul>
+</li></ul>
+<h2 id="java-md5-">Java MD5密码校验</h2>
+<ul>
+<li><p>MD5密码校验过程</p>
+<ul>
+<li>从最终数据库中保存密码获取随机值</li><li>创建MessageDigest加密对象</li><li>调用MessageDigest对象的update（）方法对随机值及密码进行加密</li><li>调用MessageDigest对象的digest（）方法获得加密之后的密码</li><li>从最终数据库中保存密码获取加密之后的密码</li><li>两个密码进行比较</li></ul>
+</li><li><p>源代码:</p>
+<pre><code>  public static boolean  validatePassword(String password,byte[] resultPassword) {
+      MessageDigest md = null;
+      byte[] randomBytes = new byte[12];
+      System.arraycopy(resultPassword, 0, randomBytes, 0, randomBytes.length);  //从最终数据库中保存密码获取随机值
+      System.out.println(&quot;随机数=&quot; + Arrays.toString(randomBytes));
+
+      try {
+          md = MessageDigest.getInstance(&quot;MD5&quot;);  //创建MessageDigest加密对象
+      } catch (NoSuchAlgorithmException e) {
+          e.printStackTrace();
+      }
+
+      md.update(randomBytes);
+      md.update(password.getBytes());  //调用MessageDigest对象的update（）方法对随机值及密码进行加密
+      byte[] passwordBytes = md.digest();
+      System.out.println(&quot;校验密码=&quot; + Arrays.toString(passwordBytes));
+
+      byte[] passwordInDB = new byte[resultPassword.length - randomBytes.length];
+      System.arraycopy(resultPassword, randomBytes.length, passwordInDB, 0, passwordInDB.length);  //从最终数据库中保存密码获取加密之后的密码
+      System.out.println(&quot;数据库校验密码=&quot; + Arrays.toString(passwordInDB));
+      if(Arrays.equals(passwordBytes, passwordInDB)) {  //两个密码进行比较
+          return true;
+      }else
+          return false;
+  }
+</code></pre></li><li>Tips:<ul>
+<li>验证的原理并不是破译了原密码，而是通过原密码的加密方式，对现密码再进行相同的加密，若加密之后的密码与原密码加密过后的密码相同，那么便验证通过，否则，则不通过。</li></ul>
+</li></ul>
+<h2 id="-md5-">京东登录MD5密码校验</h2>
+<ul>
+<li>升级UserInfoDao类的queryByUserName（）方法，让其放回UserInfoDto对象</li><li>升级LoginServlet类，让其支持MD5密码校验</li><li><p>删除UserInfoDao类的queryUserInfo（）方法</p>
+</li><li><p>源代码：</p>
+<pre><code>  public UserInfoDto queryByUserName(String userName) {
+
+      UserInfoDto userInfoDto = null;
+      try {
+          con = JDBCUtil.getConnection();
+          String sql = &quot;select * from user_info where user_name = ?&quot;;
+          ps = con.prepareStatement(sql);
+          ps.setString(1, userName);
+          rs = ps.executeQuery();
+          if(rs.next()) {
+              userInfoDto = new UserInfoDto();
+              userInfoDto.setId(rs.getInt(&quot;id&quot;));
+              userInfoDto.setPassword(rs.getBytes(&quot;password&quot;));
+              userInfoDto.setTelephone(rs.getString(&quot;telephone&quot;));
+              userInfoDto.setUserName(rs.getString(&quot;user_name&quot;));
+          }
+      } catch (SQLException e) {
+          System.out.println(&quot;数据查询失败&quot;);
+      } finally {
+          JDBCUtil.clear(con, ps, rs);
+          }
+      return userInfoDto;
+  }
+</code></pre></li><li><p>Tips：</p>
+<ul>
+<li>将查询数据方法的返回值变为Dto对象，这是面向对象更加直接的体现，将查询到的所有数据封装到对象里面</li><li>增加数据则传入Dto对象</li></ul>
+</li></ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
